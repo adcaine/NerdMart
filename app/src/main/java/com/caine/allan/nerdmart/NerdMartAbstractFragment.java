@@ -13,7 +13,7 @@ import javax.inject.Inject;
 public abstract class NerdMartAbstractFragment extends Fragment {
 
     @Inject
-    NerdMartServiceInterface mNerdMartServiceInterface;
+    NerdMartServiceManager mNerdMartServiceManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

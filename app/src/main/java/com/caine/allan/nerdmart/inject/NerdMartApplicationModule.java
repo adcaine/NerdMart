@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.bignerdranch.android.nerdmartservice.service.NerdMartService;
 import com.bignerdranch.android.nerdmartservice.service.NerdMartServiceInterface;
+import com.caine.allan.nerdmart.NerdMartServiceManager;
 
 import dagger.Module;
 import dagger.Provides;
@@ -23,5 +24,10 @@ public class NerdMartApplicationModule {
     @Provides
     NerdMartServiceInterface providesNerbMartServiceInterface(){
         return new NerdMartService();
+    }
+
+    @Provides
+    NerdMartServiceManager providesNerdMartServiceManager(NerdMartServiceInterface nerdMartServiceInterface){
+        return new NerdMartServiceManager(nerdMartServiceInterface);
     }
 }
