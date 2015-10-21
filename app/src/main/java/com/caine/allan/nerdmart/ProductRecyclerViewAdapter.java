@@ -64,12 +64,11 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
         }
 
         private void bindHolder(Product product, int position){
-            mDataBinding.viewProductRowTitle.setText(product.toString());
-            mDataBinding.setBuyButtonClickListener(v -> {
-                mAddProductClickEvent.onProductAddClick(product);
-                //mDataBinding.setProductViewModel(new ProductViewModel(mContext, product, position));
-            });
-        }
+            mDataBinding.setBuyButtonClickListener(v ->
+                mAddProductClickEvent.onProductAddClick(product));
+            mDataBinding.setProductViewModel(new ProductViewModel(mContext, product, position));
+            }
+
 
     }
 }
