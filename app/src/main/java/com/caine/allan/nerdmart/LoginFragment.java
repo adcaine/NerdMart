@@ -38,13 +38,13 @@ public class LoginFragment extends NerdMartAbstractFragment {
     public void handleLoginClick(){
         String username = mUsernameEditText.getText().toString();
         String password = mPasswordEditText.getText().toString();
-        Subscription subscription = mNerdMartServiceManager
+        addSubscription(mNerdMartServiceManager
                 .authenticate(username, password)
                 .subscribe(authenticated -> {
                     Toast.makeText(getActivity(), R.string.auth_success_toast, Toast.LENGTH_SHORT).show();
                     Intent intent = ProductsActivity.newIntent(getActivity());
                     startActivity(intent);
                     getActivity().finish();
-                });
+                }));
     }
 }

@@ -24,10 +24,11 @@ public class ProductsFragment extends NerdMartAbstractFragment {
     }
 
     private void updateUI(){
-        mNerdMartServiceManager
-                .getProducts()
-                .subscribe(product -> {
-                   Timber.i("received products: " + product);
-                });
+        addSubscription(
+            mNerdMartServiceManager
+                    .getProducts()
+                    .subscribe(product -> {
+                       Timber.i("received products: " + product);
+                }));
     }
 }
