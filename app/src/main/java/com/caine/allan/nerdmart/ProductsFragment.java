@@ -1,11 +1,14 @@
 package com.caine.allan.nerdmart;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.caine.allan.nerdmart.databinding.FragmentProductBinding;
 
 import timber.log.Timber;
 
@@ -14,22 +17,24 @@ import timber.log.Timber;
  */
 public class ProductsFragment extends NerdMartAbstractFragment {
 
+    private FragmentProductBinding mFragmentProductBinding;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragments_product, container, false);
+        mFragmentProductBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_product, container, false);
         updateUI();
-        return view;
+        return mFragmentProductBinding.getRoot();
     }
 
     private void updateUI(){
         addSubscription(
-            mNerdMartServiceManager
-                    .getProducts()
-                    .compose(loadingTransformer())
-                    .subscribe(product -> {
-                       Timber.i("received products: " + product);
-                }));
+                mNerdMartServiceManager
+                        .getProducts()
+                        .compose(loadingTransformer())
+                        .subscribe(product -> {
+                            Timber.i("received products: " + product);
+                        }));
     }
 }
