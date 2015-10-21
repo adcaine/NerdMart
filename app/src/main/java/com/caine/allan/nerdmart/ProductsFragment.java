@@ -27,6 +27,7 @@ public class ProductsFragment extends NerdMartAbstractFragment {
         addSubscription(
             mNerdMartServiceManager
                     .getProducts()
+                    .compose(loadingTransformer())
                     .subscribe(product -> {
                        Timber.i("received products: " + product);
                 }));

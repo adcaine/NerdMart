@@ -40,6 +40,7 @@ public class LoginFragment extends NerdMartAbstractFragment {
         String password = mPasswordEditText.getText().toString();
         addSubscription(mNerdMartServiceManager
                 .authenticate(username, password)
+                .compose(loadingTransformer())
                 .subscribe(authenticated -> {
                     Toast.makeText(getActivity(), R.string.auth_success_toast, Toast.LENGTH_SHORT).show();
                     Intent intent = ProductsActivity.newIntent(getActivity());
