@@ -18,8 +18,16 @@ public class ProductsFragment extends NerdMartAbstractFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        Timber.i("injected: " + mNerdMartServiceManager);
         View view = inflater.inflate(R.layout.fragments_product, container, false);
+        updateUI();
         return view;
+    }
+
+    private void updateUI(){
+        mNerdMartServiceManager
+                .getProducts()
+                .subscribe(product -> {
+                   Timber.i("received products: " + product);
+                });
     }
 }
