@@ -16,4 +16,5 @@
         <item quantity="one">%d item.</item>
         <item quantity="other">%d item.</item>
     </plurals>
+    <string name="logout_button_text">Logout</string>
 </resources>

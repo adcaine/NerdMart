@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.caine.allan.nerdmart.databinding.FragmentLoginBinding;
 
 import rx.Subscription;

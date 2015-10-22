@@ -2,6 +2,7 @@ package com.caine.allan.nerdmart.inject;
 
 import com.caine.allan.nerdmart.NerdMartAbstractActivity;
 import com.caine.allan.nerdmart.NerdMartAbstractFragment;
+import com.caine.allan.nerdmart.NerdMartViewModel;
 
 import javax.inject.Singleton;
 
